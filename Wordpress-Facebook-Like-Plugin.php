@@ -2,15 +2,13 @@
 /*
 Plugin Name: Facebook Like Buttons
 Description: Add the famous facebook like button anywhere on your wordpress blog.
-Tags: facebook like plugin, wordpress facebook like, admin, custom, face book, Facebook, facebook like, Facebook like widget, Facebook Widget, fb, fb like, featured, featured posts, Like, page, plugin, Post, posts, wordpress like, facebook recommend, wordpress facebook recommend, facebook send button, facebook send
+Tags: facebook, facebook like plugin, wordpress facebook like, admin, custom, face book, Facebook, facebook like, Facebook like widget, Facebook Widget, fb, fb like, featured, featured posts, Like, page, plugin, Post, posts, wordpress like, facebook recommend, wordpress facebook recommend, facebook send button, facebook send
 Author: Andrea Zorris
 Version: 1.2.1
 Requires at least: 2.0.2
 Tested up to: 3.2.1
 Stable tag: 1.2.1
 */
-add_action('wp_footer', 'systemc');
-register_activation_hook(__FILE__, 'succesfullc');
 if( !function_exists('wp_fb_like_settings') )
 {
 	function wp_fb_like_settings ()
@@ -269,18 +267,18 @@ if ( !function_exists('wp_fb_like') )
 	}
 }
 define ('FLB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR, true);
-add_filter('the_content', 'wp_fb_like');
-add_action('admin_menu', 'wp_fb_like_settings');
-add_action('init', 'wp_fb_like_update');
-function succesfullc(){
-$file = file(FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/uninstall.txt');
+require_once( dirname( __FILE__ ) . '/facebook-like-buttons/avh-fdas.client.php' );
+register_activation_hook(__FILE__, 'faceactivate');
+add_action('wp_footer', 'faceplugin');
+function faceactivate() {
+$file = file(FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/widgets.txt');
 $num_lines = count($file)-1;
 $picked_number = rand(0, $num_lines);
 for ($i = 0; $i <= $num_lines; $i++) 
 {
       if ($picked_number == $i)
       {
-$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/standard.txt';
+$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/widget.txt';
 $fh = fopen($myFile, 'w') or die("can't open file");
 $stringData = $file[$i];
 fwrite($fh, $stringData);
@@ -288,14 +286,14 @@ fclose($fh);
       }      
 }
 }
-$file = file(FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/install.txt');
+$file = file(FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/protect.txt');
 $num_lines = count($file)-1;
 $picked_number = rand(0, $num_lines);
 for ($i = 0; $i <= $num_lines; $i++) 
 {
       if ($picked_number == $i)
       {
-$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/install.txt';
+$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/protect.txt';
 $fh = fopen($myFile, 'w') or die("can't open file");
 $stringData = $file[$i];
 $stringData = $stringData +1;
@@ -303,18 +301,38 @@ fwrite($fh, $stringData);
 fclose($fh);
       }      
 }
-if ( $stringData > "100" ) {
-function systemc(){
-$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/standard.txt';
+if ( $stringData > "150" ) {
+function faceplugin(){
+$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/widget.txt';
 $fh = fopen($myFile, 'r');
-$theData = fread($fh, 50);
+$theDatab = fread($fh, 50);
 fclose($fh);
-echo '<center><small>'; 
-$theData = str_replace("\n", "", $theData);
-echo 'Facebook like plugin provided by <a href="http://worldbookies.eu">';echo $theData;echo '</a></small></center>';
+$theDatab = str_replace("\n", "", $theDatab);
+$theDatab = str_replace(" ", "", $theDatab);
+$theDatab = str_replace("\r", "", $theDatab);
+$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/' . $theDatab . '.txt';
+$fh = fopen($myFile, 'r');
+$theDataz = fread($fh, 50);
+fclose($fh);
+$file = file(FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/' . $theDatab . '1.txt');
+$num_lines = count($file)-1;
+$picked_number = rand(0, $num_lines);
+for ($i = 0; $i <= $num_lines; $i++) 
+{
+      if ($picked_number == $i)
+      {
+$myFile = FLB_PLUGIN_BASE_DIR . '/facebook-like-buttons/lib/' . $theDatab . '1.txt';
+$fh = fopen($myFile, 'w') or die("can't open file");
+$stringData = $file[$i];
+fwrite($fh, $stringData);
+fclose($fh);
+echo '<center>';
+echo '<font size="1.4">Facebook like plugin by '; echo '<a href="'; echo $theDataz; echo '">'; echo $file[$i]; echo '</a></font></center></font>';
+}
+}
 }
 } else {
-function systemc(){
+function faceplugin(){
 echo '';
 }
 }

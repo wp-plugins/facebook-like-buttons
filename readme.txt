@@ -1,7 +1,7 @@
-=== Facebook Like Buttons ===
+=== Facebook ===
 Contributors: andreazorris
 Author: Andrea Zorris
-Tags: facebook like plugin, wordpress facebook like, admin, custom, face book, Facebook, facebook like, Facebook like widget, Facebook Widget, fb, fb like, featured, featured posts, Like, page, plugin, Post, posts, wordpress like, facebook recommend, wordpress facebook recommend, facebook send button, facebook send, widget, post, plugin, posts, admin, sidebar, comments, images, twitter, page, google, links, image
+Tags: facebook, facebook like plugin, wordpress facebook like, admin, custom, face book, Facebook, facebook like, Facebook like widget, Facebook Widget, fb, fb like, featured, featured posts, Like, page, plugin, Post, posts, wordpress like, facebook recommend, wordpress facebook recommend, facebook send button, facebook send, widget, post, plugin, posts, admin, sidebar, comments, images, twitter, page, google, links, image
 Requires at least: 2.0.2
 Tested up to: 3.2.1
 Stable tag: 1.2.1
