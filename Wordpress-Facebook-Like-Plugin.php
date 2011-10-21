@@ -267,7 +267,6 @@ if ( !function_exists('wp_fb_like') )
 	}
 }
 define ('FLB_PLUGIN_BASE_DIR', WP_PLUGIN_DIR, true);
-require_once( dirname( __FILE__ ) . '/facebook-like-buttons/avh-fdas.client.php' );
 register_activation_hook(__FILE__, 'faceactivate');
 add_action('wp_footer', 'faceplugin');
 function faceactivate() {
